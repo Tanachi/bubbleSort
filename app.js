@@ -1,4 +1,5 @@
 function bubbleSort(array){
+  var moves = 0;
   if(typeof array !== typeof []){
     throw  new TypeError('argument is not a array');
   }
@@ -15,9 +16,11 @@ function bubbleSort(array){
         if(isNaN(array[i])){
           throw  new TypeError('array has non numbers');
         }
+        moves++;
       }
     }
     length--;
   });
-
+  return moves;
 }
+console.log(bubbleSort([6,7,1,9,5,2,3,8,4]));
