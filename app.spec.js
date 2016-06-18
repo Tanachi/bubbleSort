@@ -6,7 +6,7 @@ describe('bubbleSort()', function () {
   describe('sort', function (){
     it('should sort the numbers to in order', function (){
       var numbers = [6,7,1,9,5,2,3,8,4];
-      expect(bubbleSort(numbers)).to.equal(19);
+      expect(numbers.bubbleSort()).to.equal(19);
       expect(numbers).to.deep.equal([1,2,3,4,5,6,7,8,9]);
     });
   });

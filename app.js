@@ -1,26 +1,32 @@
-function bubbleSort(array){
+function bubbleSort(){
   var moves = 0;
-  if(typeof array !== typeof []){
+  if(typeof this !== typeof []){
     throw  new TypeError('argument is not a array');
   }
-  var length = array.length;
-  array.forEach(function(){
+  var length = this.length;
+  for(var j = 0; j < this.length; j++){
      for(var i = 0; i < length; i++){
-      if(isNaN(array[i])){
-        throw  new TypeError('array has non numbers');
+      if(isNaN(this[i])){
+        throw new TypeError('array has no numbers');
       }
-      if(array[i]  > array[i + 1]){
-        var swapValue = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = swapValue;
-        if(isNaN(array[i])){
-          throw  new TypeError('array has non numbers');
-        }
+      if(this[i]  > this[i + 1]){
+        var swapValue = this[i];
+        this[i] = this[i + 1];
+        this[i + 1] = swapValue;
         moves++;
+        if(isNaN(this[i])){
+          throw new TypeError('array has no numbers');
+        }
+        var newDiv = document.createElement('div');
+        var newContent = document.createTextNode(this);
+        newDiv.appendChild(newContent);
+        var currentDiv = document.getElementById("div1");
+        document.body.insertBefore(newDiv, currentDiv);
       }
     }
     length--;
-  });
+  }
   return moves;
 }
-console.log(bubbleSort([6,7,1,9,5,2,3,8,4]));
+var numbers = [6,7,1,9,5,2,3,8,4];
+Array.prototype.bubbleSort = bubbleSort;
