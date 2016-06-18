@@ -1,13 +1,23 @@
 function bubbleSort(array){
+  if(typeof array !== typeof []){
+    throw  new TypeError('argument is not a array');
+  }
   var length = array.length;
-  for(var j = 0; j < array.length; j++){
-    for(var i = 0; i < length; i++){
+  array.forEach(function(){
+     for(var i = 0; i < length; i++){
+      if(isNaN(array[i])){
+        throw  new TypeError('array has non numbers');
+      }
       if(array[i]  > array[i + 1]){
         var swapValue = array[i];
         array[i] = array[i + 1];
         array[i + 1] = swapValue;
+        if(isNaN(array[i])){
+          throw  new TypeError('array has non numbers');
+        }
       }
     }
     length--;
-  }
+  });
+
 }
